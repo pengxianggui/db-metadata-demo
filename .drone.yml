@@ -74,7 +74,7 @@ steps:
   - name: deploy-ui
     image: hthj-registry.cn-hangzhou.cr.aliyuncs.com/hthj_base/drone-k8s-update
     settings:
-      kubernetes_server: https://rancher1.asoco.com.cn/k8s/clusters/local
+      kubernetes_server: https://rancher.asoco.com.cn/k8s/clusters/local
       kubernetes_token:
         from_secret: k8s_token
       namespace: system-tool
@@ -90,7 +90,7 @@ steps:
   - name: deploy-server
     image: hthj-registry.cn-hangzhou.cr.aliyuncs.com/hthj_base/drone-k8s-update
     settings:
-      kubernetes_server: https://rancher1.asoco.com.cn/k8s/clusters/local
+      kubernetes_server: https://rancher.asoco.com.cn/k8s/clusters/local
       kubernetes_token:
         from_secret: k8s_token
       namespace: system-tool
