@@ -6,7 +6,11 @@
 
 <script>
 export default {
-  name: "Route1_1"
+  name: "Route1_1",
+  meta: {
+    cn: '路由1_1',
+    icon: 'el-icon-menu'
+  }
 }
 </script>
 

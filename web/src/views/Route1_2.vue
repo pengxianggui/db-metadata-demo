@@ -62,6 +62,10 @@ const treeData = [
 ]
 export default {
   name: "Route1_2",
+  meta: {
+    cn: '路由1_2',
+    icon: 'add'
+  },
   data() {
     return {
       treeData: treeData,
