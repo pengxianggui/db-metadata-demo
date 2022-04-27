@@ -67,7 +67,7 @@ steps:
       - name: docker
         path: /var/run/docker.sock
     commands:
-      - sh build.sh ${DRONE_BRANCH}-${DRONE_BUILD_NUMBER} $${DRONE_COMMIT_MESSAGE##*;}
+      - sh build.sh ${DRONE_BUILD_NUMBER} $${DRONE_COMMIT_MESSAGE##*;}
     when:
       local: false
 
@@ -79,9 +79,9 @@ steps:
         from_secret: k8s_token
       namespace: system-tool
       deployment: db-metadata-web
-      repo: registry.cn-hangzhou.aliyuncs.com/hthj_asoco/db-metadata
+      repo: hthj-registry.cn-hangzhou.cr.aliyuncs.com/hthj_asoco/db-metadata-demo-web
       container: db-metadata-web
-      tag: web-${DRONE_BRANCH}-${DRONE_BUILD_NUMBER}
+      tag: {DRONE_BUILD_NUMBER}
     when:
       event:
         - push
@@ -95,9 +95,9 @@ steps:
         from_secret: k8s_token
       namespace: system-tool
       deployment: db-metadata-server
-      repo: registry.cn-hangzhou.aliyuncs.com/hthj_asoco/db-metadata
+      repo: hthj-registry.cn-hangzhou.cr.aliyuncs.com/hthj_asoco/db-metadata-demo-server
       container: db-metadata-server
-      tag: server-${DRONE_BRANCH}-${DRONE_BUILD_NUMBER}
+      tag: ${DRONE_BUILD_NUMBER}
     when:
       event:
         - push
