@@ -81,7 +81,7 @@ steps:
       deployment: db-metadata-web
       repo: hthj-registry.cn-hangzhou.cr.aliyuncs.com/hthj_asoco/db-metadata-demo-web
       container: db-metadata-web
-      tag: {DRONE_BUILD_NUMBER}
+      tag: ${DRONE_BUILD_NUMBER}
     when:
       event:
         - push
