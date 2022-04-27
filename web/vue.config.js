@@ -1,3 +1,4 @@
+let path = require('path')
 module.exports = {
     publicPath: '/',
     outputDir: 'dist',
@@ -16,11 +17,18 @@ module.exports = {
         },
         sockHost: 'localhost',
         proxy: {
-            ['/api']: {
-                target: 'http://localhost:8888',
+            [process.env.VUE_APP_BASE_API]: {
+                target: process.env.VUE_APP_PROXY_URL,
                 pathRewrite: {'^/api': ''},
                 changeOrigin: true
             }
         }
     },
+    chainWebpack: config => {
+        config.plugin('html')
+            .tap(args => {
+                args[0].favicon = path.resolve('public/logo.png');
+                return args
+            })
+    }
 }
