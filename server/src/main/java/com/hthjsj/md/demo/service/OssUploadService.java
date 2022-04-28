@@ -15,10 +15,6 @@ import java.util.List;
  */
 @Component
 public class OssUploadService implements UploadService {
-    @Override
-    public String getFileNameWithAffix(MultipartFile file) {
-        return null;
-    }
 
     @Override
     public UploadFileResolve getFileResolver(IMetaField metaField, String fieldValue) {
