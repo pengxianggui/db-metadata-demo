@@ -4,6 +4,7 @@ import com.github.md.analysis.meta.IMetaField;
 import com.github.md.web.upload.UploadFileResolve;
 import com.github.md.web.upload.UploadService;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.util.List;
@@ -15,12 +16,22 @@ import java.util.List;
 @Component
 public class OssUploadService implements UploadService {
     @Override
-    public String upload(IMetaField metaField, File file) {
+    public String getFileNameWithAffix(MultipartFile file) {
         return null;
     }
 
     @Override
-    public String upload(File file) {
+    public UploadFileResolve getFileResolver(IMetaField metaField, String fieldValue) {
+        return null;
+    }
+
+    @Override
+    public String upload(IMetaField metaField, MultipartFile file) {
+        return null;
+    }
+
+    @Override
+    public String upload(MultipartFile file) {
         return null;
     }
 
@@ -31,16 +42,6 @@ public class OssUploadService implements UploadService {
 
     @Override
     public List<File> getFile(IMetaField metaField, String primaryValue, String fieldValue) {
-        return null;
-    }
-
-    @Override
-    public String getBasePath() {
-        return null;
-    }
-
-    @Override
-    public UploadFileResolve getFileResovler(IMetaField metaField, String fieldValue) {
         return null;
     }
 }
