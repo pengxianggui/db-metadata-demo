@@ -1,8 +1,8 @@
 package com.hthjsj.md.demo.config;
 
 import com.github.md.web.DbMetaConfigurer;
-import com.github.md.web.upload.UploadRegistry;
-import com.github.md.web.upload.UploadService;
+import com.github.md.web.file.FileRegistry;
+import com.github.md.web.file.UploadService;
 import com.github.md.web.user.AuthenticationRegistry;
 import com.hthjsj.md.demo.service.MyLoginService;
 import com.hthjsj.md.demo.service.MyUserService;
@@ -29,11 +29,11 @@ public class MyDbMetaConfigurer extends DbMetaConfigurer {
      * <p>
      * OssUploadService必须继承 {@link UploadService}}
      *
-     * @param uploadRegistry
+     * @param fileRegistry
      */
     @Override
-    public void configUploadService(UploadRegistry uploadRegistry) {
-//        uploadRegistry.config("oss", ossUploadService);
+    public void configFileService(FileRegistry fileRegistry) {
+//        fileRegistry.config("oss", ossUploadService, ossUploadService);
     }
 
     /**
