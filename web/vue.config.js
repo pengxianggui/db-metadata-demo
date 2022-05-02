@@ -24,11 +24,11 @@ module.exports = {
             }
         }
     },
-    chainWebpack: config => {
-        config.plugin('html')
-            .tap(args => {
-                args[0].favicon = path.resolve('public/logo.png');
-                return args
-            })
-    }
+    // chainWebpack: config => {
+    //     config.plugin('html')
+    //         .tap(args => {
+    //             args[0].favicon = path.resolve('public/logo.png');
+    //             return args
+    //         })
+    // }
 }
