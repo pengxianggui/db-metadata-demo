@@ -26,8 +26,6 @@ public class MyDbMetaConfigurer extends DbMetaConfigurer {
 
     /**
      * 通过重写此方法，你可以向dbmeta注册上传服务，内置的上传服务为local: LocalUploadService
-     * <p>
-     * OssUploadService必须继承 {@link UploadService}}
      *
      * @param fileRegistry
      */
