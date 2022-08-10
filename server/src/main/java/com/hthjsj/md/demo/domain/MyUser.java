@@ -27,6 +27,16 @@ public class MyUser implements UserWithRolesWrapper {
     }
 
     @Override
+    public String phone() {
+        return null;
+    }
+
+    @Override
+    public String email() {
+        return null;
+    }
+
+    @Override
     public MRRole[] roles() {
         return new MRRole[0];
     }
