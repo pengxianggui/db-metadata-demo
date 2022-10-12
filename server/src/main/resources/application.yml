@@ -10,9 +10,9 @@ logging:
 
 spring:
   datasource:
-    username: root
-    password: 123456
     url: jdbc:mysql://192.168.6.64:3306/metadata?useSSL=false&characterEncoding=utf-8
+    username: root
+    password: wM4T*q1rhKfS
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 
@@ -43,7 +43,7 @@ md:
     # 若登录时 md.server.login.login-key的值和此配置下同名key的值相等，那么优先进行ROOT认证, 密码匹配则视为ROOT, 返回此ROOT对象; 密码若不匹配再去用户数据库进行匹配。
     root:
       username: ROOT
-      password: 888888
+      password: 727227682e82393805614e2a7774d03d # 为aes加密值，加密密钥为 md.app.pass-encrypt-key。此密码明文为888888
 
   server:
     enable-certification: true # 是否启用认证，若关闭, 则不用登录，不用鉴权。
@@ -87,7 +87,3 @@ md:
 
   analysis:
     show-sql: true
-    extension:
-      meta-object-enabled: true
-      meta-field-enabled: true
-      component-instance-enabled: true
