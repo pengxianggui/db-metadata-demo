@@ -6,6 +6,8 @@ import com.hthjsj.md.demo.domain.MyUser;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author pengxg
@@ -36,6 +38,11 @@ public class MyLoginService implements LoginService<MyUser> {
     @Override
     public boolean logout(MyUser user) {
         return false;
+    }
+
+    @Override
+    public Map<String, MyUser> getAllLoggedUsers() {
+        return new HashMap<>();
     }
 
     @Override

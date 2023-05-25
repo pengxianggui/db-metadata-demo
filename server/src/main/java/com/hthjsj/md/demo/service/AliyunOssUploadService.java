@@ -8,11 +8,18 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 
 /**
+ * 阿里云oss上传对象
+ *
  * @author pengxg
  * @date 2022/4/25 5:18 下午
  */
 @Component
-public class OssUploadService implements UploadService, DownloadService {
+public class AliyunOssUploadService implements UploadService, DownloadService {
+
+    @Override
+    public String getMode() {
+        return "aliyunoss";
+    }
 
     @Override
     public String upload(MultipartFile file, String... splitMarkers) {

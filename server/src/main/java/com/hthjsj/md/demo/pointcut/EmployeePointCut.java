@@ -3,7 +3,7 @@ package com.hthjsj.md.demo.pointcut;
 import com.github.md.analysis.AnalysisSpringUtil;
 import com.github.md.analysis.meta.aop.*;
 import com.github.md.web.controller.TableQueryInvocation;
-import com.hthjsj.md.demo.service.OssUploadService;
+import com.hthjsj.md.demo.service.AliyunOssUploadService;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class EmployeePointCut implements TableQueryPointCut, DeletePointCut, AddPointCut, UpdatePointCut, ViewPointCut {
 
-    private final OssUploadService uploadService = AnalysisSpringUtil.getBean(OssUploadService.class);
+    private final AliyunOssUploadService aliyunOssUploadService = AnalysisSpringUtil.getBean(AliyunOssUploadService.class);
 
     @Override
     public boolean addBefore(FormInvocation invocation) {

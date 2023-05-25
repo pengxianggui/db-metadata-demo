@@ -2,11 +2,10 @@ package com.hthjsj.md.demo.config;
 
 import com.github.md.web.DbMetaConfigurer;
 import com.github.md.web.file.FileRegistry;
-import com.github.md.web.file.UploadService;
 import com.github.md.web.user.AuthenticationRegistry;
 import com.hthjsj.md.demo.service.MyLoginService;
 import com.hthjsj.md.demo.service.MyUserService;
-import com.hthjsj.md.demo.service.OssUploadService;
+import com.hthjsj.md.demo.service.AliyunOssUploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
 public class MyDbMetaConfigurer extends DbMetaConfigurer {
 
     @Autowired
-    private OssUploadService ossUploadService;
+    private AliyunOssUploadService aliyunOssUploadService;
     @Autowired
     private MyUserService userService;
     @Autowired
@@ -31,7 +30,7 @@ public class MyDbMetaConfigurer extends DbMetaConfigurer {
      */
     @Override
     public void configFileService(FileRegistry fileRegistry) {
-//        fileRegistry.config("oss", ossUploadService, ossUploadService);
+        fileRegistry.config(aliyunOssUploadService.getMode(), aliyunOssUploadService, aliyunOssUploadService);
     }
 
     /**
@@ -45,6 +44,7 @@ public class MyDbMetaConfigurer extends DbMetaConfigurer {
      */
     @Override
     public void configAuthentication(AuthenticationRegistry registry) {
-//        registry.setUserService(userService).setLoginService(loginService); // 更多配置见AuthenticationRegistry中的配置项
+//        registry.setUserService(userService)
+//                .setLoginService(loginService); // 更多配置见AuthenticationRegistry中的配置项
     }
 }
