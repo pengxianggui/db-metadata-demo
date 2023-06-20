@@ -4,8 +4,8 @@
 server为服务端;
 web为PC前端;
 
-这是一个最简单的实现db-metadata集成的demo，包括前后端两部分。基于db-metadata v2.2
+这是一个最简单的实现db-metadata集成的demo，包括前后端两部分。
 
 ## 传送门
 - [db-metadata源码](https://github.com/pengxianggui/db-metadata)
-- [db-metadata文档](https://doc-dbmeta.asoco.com.cn/)
+- [db-metadata文档](http://dbmeta.pengxg.cc/)

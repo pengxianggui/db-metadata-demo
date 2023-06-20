@@ -1,4 +1,4 @@
-package com.hthjsj.md.demo.domain;
+package com.hthjsj.md.demo.user;
 
 import com.github.md.analysis.kit.Kv;
 import com.github.md.web.user.role.MRRole;
@@ -7,6 +7,7 @@ import com.github.md.web.user.role.UserWithRolesWrapper;
 import java.util.Map;
 
 /**
+ * 不使用dbmeta提供的用户服务时，需要提供一个用户对象
  * @author pengxg
  * @date 2022/4/25 5:20 下午
  */

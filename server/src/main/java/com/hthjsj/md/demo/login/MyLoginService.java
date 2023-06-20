@@ -1,8 +1,8 @@
-package com.hthjsj.md.demo.service;
+package com.hthjsj.md.demo.login;
 
 import com.github.md.web.user.LoginService;
 import com.github.md.web.user.LoginVO;
-import com.hthjsj.md.demo.domain.MyUser;
+import com.hthjsj.md.demo.user.MyUser;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 不使用dbmeta提供的登录服务时，需要提供一个，必须实现{@link LoginService}
  * @author pengxg
  * @date 2022/4/25 5:21 下午
  */

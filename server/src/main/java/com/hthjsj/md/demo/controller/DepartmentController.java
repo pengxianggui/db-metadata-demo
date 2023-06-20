@@ -1,6 +1,6 @@
 package com.hthjsj.md.demo.controller;
 
-import cn.com.asoco.http.HttpResult;
+import com.github.md.analysis.kit.Ret;
 import com.google.common.collect.Lists;
 import com.jfinal.kit.Kv;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +19,7 @@ import java.util.Map;
 public class DepartmentController {
 
     @GetMapping("options")
-    public HttpResult<List<Map>> departmentOptions() {
+    public Ret departmentOptions() {
         List<Map> options = Lists.newArrayList();
         Map option1 = Kv.by("key", "产品研发部").set("value", "1");
         Map option2 = Kv.by("key", "项目履约部").set("value", "2");
@@ -27,6 +27,6 @@ public class DepartmentController {
         options.add(option1);
         options.add(option2);
         options.add(option3);
-        return HttpResult.success(options);
+        return Ret.ok("data", options);
     }
 }

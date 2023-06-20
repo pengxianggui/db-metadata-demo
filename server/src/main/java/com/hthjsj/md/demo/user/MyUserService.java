@@ -1,13 +1,13 @@
-package com.hthjsj.md.demo.service;
+package com.hthjsj.md.demo.user;
 
 import com.github.md.web.user.UserService;
-import com.hthjsj.md.demo.domain.MyUser;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 
 /**
+ * 不使用dbmeta提供的用户服务时，需要提供一个，必须实现{@link UserService}
  * @author pengxg
  * @date 2022/4/25 5:20 下午
  */

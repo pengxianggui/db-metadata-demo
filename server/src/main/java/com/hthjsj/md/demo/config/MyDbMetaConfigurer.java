@@ -3,13 +3,14 @@ package com.hthjsj.md.demo.config;
 import com.github.md.web.DbMetaConfigurer;
 import com.github.md.web.file.FileRegistry;
 import com.github.md.web.user.AuthenticationRegistry;
-import com.hthjsj.md.demo.service.MyLoginService;
-import com.hthjsj.md.demo.service.MyUserService;
+import com.hthjsj.md.demo.login.MyLoginService;
+import com.hthjsj.md.demo.user.MyUserService;
 import com.hthjsj.md.demo.service.AliyunOssUploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
 /**
+ * 这个是dbmeta自定义扩展的核心java配置类，所有的自定义扩展都是通过这个入口装配到dbmeta中去。
  * @author pengxg
  * @date 2022/4/25 5:16 下午
  */
