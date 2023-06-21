@@ -3,13 +3,9 @@
 #版本
 version=$1
 
-## 部署目标: code/doc
-type=$(echo $2 | sed 's/\\n.*//g')
-
 #前缀
-prefix="hthj-registry.cn-hangzhou.cr.aliyuncs.com/hthj_asoco/db-metadata-demo"
+prefix="pengxg/db-metadata-demo"
 
-echo "type:${type}"
 echo "version:${version}"
 echo "prefix:${prefix}"
 
@@ -22,7 +18,7 @@ echo "构建web镜像..."
 docker  build -f web/Dockerfile --rm=true  -t $prefix"-web:"${version} ./web ;
 
 echo "登录镜像仓库..."
-docker login -u "${PLUGIN_DOCKER_USERNAME}" -p "${PLUGIN_DOCKER_PASSWORD}" hthj-registry.cn-hangzhou.cr.aliyuncs.com;
+docker login -u "${PLUGIN_DOCKER_USERNAME}" -p "${PLUGIN_DOCKER_PASSWORD}" hub.docker.com;
 
 echo "推送server镜像..."
 docker push $prefix"-server:"${version} ;
