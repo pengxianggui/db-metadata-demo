@@ -16,6 +16,8 @@ jobs:
 
       - name: Source build
         run: |
+          echo 'local install db-metadata'
+          git clone https://github.com/pengxianggui/db-metadata.git && cd db-metadata && mvn -DskipTests=true clean package
           cd server
           mvn -DskipTests=true clean install
           cd ./web
