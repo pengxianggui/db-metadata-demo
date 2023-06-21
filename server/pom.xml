@@ -18,7 +18,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.md</groupId>
+            <groupId>io.github.pengxianggui</groupId>
             <artifactId>db-metadata-server-springboot</artifactId>
             <version>${dbmeta.version}</version>
         </dependency>
