@@ -1,4 +1,4 @@
-FROM java:openjdk-8u111-jre-alpine
+FROM pengxg/java8-skywalking
 
 VOLUME /tmp
 VOLUME /opt/www/db-meta-serve
