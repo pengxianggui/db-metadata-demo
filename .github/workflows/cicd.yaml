@@ -23,7 +23,7 @@ jobs:
           echo 'start to build db-metadata-demo'
           cd ../../server
           mvn -DskipTests=true clean install
-          cd ./web
+          cd ../web
           npm install && npm build:prod
 
       - name: Login to docker hub
