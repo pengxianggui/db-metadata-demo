@@ -32,16 +32,24 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Docker build and push docker image 【server】
-        uses: docker/build-push-action@v4
+        uses: mr-smithers-excellent/docker-build-push@v6
         with:
-          push: true
-          content: ./server
+          image: pengxg/db-metadata-demo-server
+          tags: latest
+          registry: docker.io
+          dockerfile: ./server/Dockerfile
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Docker build and push docker image 【web】
-        uses: docker/build-push-action@v4
+        uses: mr-smithers-excellent/docker-build-push@v6
         with:
-          push: true
-          content: ./web
+          image: pengxg/db-metadata-demo-web
+          tags: latest
+          registry: docker.io
+          dockerfile: ./web/Dockerfile
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Ssh deploy
         uses: appleboy/ssh-action@v0.1.10
