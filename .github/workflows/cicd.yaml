@@ -23,7 +23,7 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
           image: pengxg/db-metadata-demo-server
-          tags: $GITHUB_RUN_NUMBER
+          tags: ${{github.run_number}}
           registry: docker.io
           dockerfile: ./server/Dockerfile
           directory: ./server
@@ -40,7 +40,7 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
           image: pengxg/db-metadata-demo-web
-          tags: $GITHUB_RUN_NUMBER
+          tags: ${{github.run_number}}
           registry: docker.io
           dockerfile: ./web/Dockerfile
           directory: ./web
