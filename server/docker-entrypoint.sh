@@ -7,6 +7,7 @@ fi
 set -e
 
 jarPath="/app/app.jar"
+
 # stop
 echo "begin stop if exist. the process will be killed:"
 echo `ps -ef | grep $jarPath | grep -v "grep"`
