@@ -32,4 +32,10 @@ const routes = [
 const router = new Router({
     routes: routes
 })
+
+router.afterEach((to/*, from*/) => {
+    const { meta: { title = 'dbmeta演示' } } = to
+    document.title = title
+})
+
 export default router
