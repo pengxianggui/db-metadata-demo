@@ -1,5 +1,5 @@
 .DS_Store
-/dist
+web/dist
 
 # Log files
 npm-debug.log*
