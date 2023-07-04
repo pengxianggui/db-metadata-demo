@@ -42,6 +42,11 @@ public class MyLoginService implements LoginService<MyUser> {
     }
 
     @Override
+    public boolean logout(HttpServletRequest request) {
+        return false;
+    }
+
+    @Override
     public Map<String, MyUser> getAllLoggedUsers() {
         return new HashMap<>();
     }
