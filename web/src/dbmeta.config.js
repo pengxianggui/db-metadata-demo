@@ -5,7 +5,7 @@ import Route1_2 from "@/views/Route1_2";
 
 export default {
     axios: {
-        baseURL: '/api'
+        baseURL: process.env.VUE_APP_BASE_API
     }, // axios实例(必须)
     router: router,
     menus: menus,
