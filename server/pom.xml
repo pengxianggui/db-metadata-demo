@@ -23,6 +23,11 @@
             <version>${dbmeta.version}</version>
         </dependency>
         <dependency>
+            <groupId>io.github.pengxianggui</groupId>
+            <artifactId>db-metadata-extends-aliyunoss</artifactId>
+            <version>${dbmeta.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>

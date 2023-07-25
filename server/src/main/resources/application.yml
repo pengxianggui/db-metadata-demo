@@ -66,9 +66,15 @@ md:
         - /router
         - /user/login
     upload: # 上传配置
-      mode: local # 上传采用的模式。默认为local, 表示上传到服务器本地目录(具体路径取决于md.server.upload.local下的配置)。
+      mode: aliyunoss # 上传采用的模式。默认为local, 表示上传到服务器本地目录(具体路径取决于md.server.upload.local下的配置)。
       local:
         base-upload-path: /opt/www/db-meta-serve # 当mode为本地时，配置的本地上传根路径
+      aliyunoss:
+        endpoint: oss-cn-shanghai.aliyuncs.com # endpoint
+        bucket: # bucket名
+        access-key: # AK
+        access-secret: # AS
+        dir: db-metadata-demo # 存储在bucket中的哪个目录下。
 
     event-enabled: true
     component:
