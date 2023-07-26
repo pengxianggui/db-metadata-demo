@@ -23,7 +23,8 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
           image: pengxg/db-metadata-demo-server
-          tags: ${{github.run_number}}
+#          tags: ${{github.run_number}}
+          tags: latest
           registry: docker.io
           dockerfile: ./server/Dockerfile
           directory: ./server
