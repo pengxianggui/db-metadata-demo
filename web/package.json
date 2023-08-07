@@ -13,7 +13,7 @@
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "element-ui": "^2.14.1",
-    "db-metadata": "^2.4.2",
+    "db-metadata": "~2.4.5",
     "vue": "^2.6.11",
     "vue-router": "^3.1.3"
   },
