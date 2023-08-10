@@ -22,6 +22,11 @@ public class MyLoginService implements LoginService<MyUser> {
     }
 
     @Override
+    public MyUser getUser(String s) {
+        return null;
+    }
+
+    @Override
     public MyUser login(String username, String password) {
         return null;
     }
