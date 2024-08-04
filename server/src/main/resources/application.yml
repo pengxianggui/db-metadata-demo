@@ -91,7 +91,7 @@ md:
     meta-object:
       replace-from-json-file: false # 是否开启每次启动时从json文件(defaultObject.json)中推导元对象逻辑配置，并覆盖数据库
     instance:
-      recompute-when-meta-field-update: false # 元字段更新时，是否重新计算元字段的UI实例配置。默认是false
+      recompute-when-meta-field-update: true # 元字段更新时，是否重新计算元字段的UI实例配置。默认是false
 
   analysis:
     show-sql: true

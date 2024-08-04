@@ -17,6 +17,26 @@ import java.util.Map;
 @Service
 public class MyLoginService implements LoginService<MyUser> {
     @Override
+    public String tokenKey() {
+        return null;
+    }
+
+    @Override
+    public String tokenIn() {
+        return null;
+    }
+
+    @Override
+    public String loginKey() {
+        return null;
+    }
+
+    @Override
+    public String pwdKey() {
+        return null;
+    }
+
+    @Override
     public MyUser getUser(HttpServletRequest request) {
         return null;
     }
