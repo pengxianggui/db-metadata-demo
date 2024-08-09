@@ -31,18 +31,6 @@ jobs:
 #          username: ${{ secrets.DOCKERHUB_USERNAME }}
 #          password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Docker build and push to aliyun 【server】
-        uses: mr-smithers-excellent/docker-build-push@v6
-        with:
-          image: registry.cn-hangzhou.aliyuncs.com/dbmeta/db-metadata-demo-server
-          #          tags: ${{github.run_number}}
-          tags: latest
-          registry: registry.cn-hangzhou.aliyuncs.com
-          dockerfile: ./server/Dockerfile
-          directory: ./server
-          username: ${{ secrets.ALIYUN_USERNAME }}
-          password: ${{ secrets.ALIYUN_PASSWORD }}
-
       - name: Source build【web】
         uses: actions/setup-node@v3
         with:
@@ -61,17 +49,14 @@ jobs:
 #          username: ${{ secrets.DOCKERHUB_USERNAME }}
 #          password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Docker build and push to aliyun image 【web】
-        uses: mr-smithers-excellent/docker-build-push@v6
-        with:
-          image: registry.cn-hangzhou.aliyuncs.com/dbmeta/db-metadata-demo-web
-          #          tags: ${{github.run_number}}
-          tags: latest
-          registry: registry.cn-hangzhou.aliyuncs.com
-          dockerfile: ./web/Dockerfile
-          directory: ./web
-          username: ${{ secrets.ALIYUN_USERNAME }}
-          password: ${{ secrets.ALIYUN_PASSWORD }}
+      - name: Build the Docker image
+        run: |
+          docker version
+          docker login --username=${{ secrets.ALIYUN_USERNAME }} --password=${{ secrets.ALIYUN_PASSWORD }} registry.cn-hangzhou.aliyuncs.com
+          docker build ./server -f ./server/Dockerfile --tag registry.cn-hangzhou.aliyuncs.com/dbmeta/db-metadata-demo-server:latest
+          docker push registry.cn-hangzhou.aliyuncs.com/dbmeta/db-metadata-demo-server:latest
+          docker build ./web -f ./web/Dockerfile --tag registry.cn-hangzhou.aliyuncs.com/dbmeta/db-metadata-demo-web:latest
+          docker push registry.cn-hangzhou.aliyuncs.com/dbmeta/db-metadata-demo-web:latest
 
       - name: Ssh deploy
         uses: appleboy/ssh-action@v0.1.10
