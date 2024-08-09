@@ -19,17 +19,29 @@ jobs:
           echo 'start to build db-metadata-demo'
           mvn -DskipTests=true clean install
 
-      - name: Docker build and push docker image 【server】
+#      - name: Docker build and push to docker hub 【server】
+#        uses: mr-smithers-excellent/docker-build-push@v6
+#        with:
+#          image: pengxg/db-metadata-demo-server
+##          tags: ${{github.run_number}}
+#          tags: latest
+#          registry: docker.io
+#          dockerfile: ./server/Dockerfile
+#          directory: ./server
+#          username: ${{ secrets.DOCKERHUB_USERNAME }}
+#          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Docker build and push to aliyun 【server】
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
-          image: pengxg/db-metadata-demo-server
-#          tags: ${{github.run_number}}
+          image: registry.cn-hangzhou.aliyuncs.com/dbmeta/db-metadata-demo-server
+          #          tags: ${{github.run_number}}
           tags: latest
-          registry: docker.io
+          registry: registry.cn-hangzhou.aliyuncs.com
           dockerfile: ./server/Dockerfile
           directory: ./server
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          username: ${{ secrets.ALIYUN_USERNAME }}
+          password: ${{ secrets.ALIYUN_PASSWORD }}
 
       - name: Source build【web】
         uses: actions/setup-node@v3
@@ -37,17 +49,29 @@ jobs:
           node-version: 12.22.12
       - run: cd ./web && npm install && npm run build:prod
 
-      - name: Docker build and push docker image 【web】
+#      - name: Docker build and push to docker hub 【web】
+#        uses: mr-smithers-excellent/docker-build-push@v6
+#        with:
+#          image: pengxg/db-metadata-demo-web
+##          tags: ${{github.run_number}}
+#          tags: latest
+#          registry: docker.io
+#          dockerfile: ./web/Dockerfile
+#          directory: ./web
+#          username: ${{ secrets.DOCKERHUB_USERNAME }}
+#          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Docker build and push to aliyun image 【web】
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
-          image: pengxg/db-metadata-demo-web
-#          tags: ${{github.run_number}}
+          image: registry.cn-hangzhou.aliyuncs.com/dbmeta/db-metadata-demo-web
+          #          tags: ${{github.run_number}}
           tags: latest
-          registry: docker.io
+          registry: registry.cn-hangzhou.aliyuncs.com
           dockerfile: ./web/Dockerfile
           directory: ./web
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          username: ${{ secrets.ALIYUN_USERNAME }}
+          password: ${{ secrets.ALIYUN_PASSWORD }}
 
       - name: Ssh deploy
         uses: appleboy/ssh-action@v0.1.10
