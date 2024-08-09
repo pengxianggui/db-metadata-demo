@@ -1,4 +1,4 @@
-FROM pengxg/java8-skywalking
+FROM registry.cn-hangzhou.aliyuncs.com/dbmeta/java8-skywalking
 
 VOLUME /tmp
 VOLUME /opt/www/db-meta-serve
