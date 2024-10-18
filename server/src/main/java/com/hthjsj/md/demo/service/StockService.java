@@ -40,7 +40,9 @@ public class StockService {
         Record stock = getStock(warehouseId, prodId);
         if (stock == null) {
             // 初始化库存
-            Assert.isTrue("入库".equals(type), () -> new WebException("此仓库无此物料库存, 请先入库此物料!"));
+            if ("出库".equals(type)) {
+                throw new WebException("此物料在当前仓库中无库存, 请先做入库!");
+            }
             stock = new Record();
             stock.set("warehouse_id", warehouseId);
             stock.set("prod_id", prodId);
@@ -49,8 +51,11 @@ public class StockService {
             stock.set("created_by", UserThreadLocal.getUser().userId());
             return SpringAnalysisManager.me().dbMain().save("t_stock", stock);
         } else {
-            // 更新库存
             int stockQty = stock.getInt("qty");
+            // 更新库存
+            if ("出库".equals(type) && stockQty < qty) {
+                throw new WebException("此物料库存不足! 当前库存为:%d", stockQty);
+            }
             switch (type) {
                 case "出库":
                     stockQty -= qty;
@@ -61,6 +66,7 @@ public class StockService {
                 default:
                     throw new WebException("出入库类型不正确!");
             }
+            Assert.isTrue("入库".equals(type), () -> new WebException("此仓库无此物料库存, 请先入库此物料!"));
             stock.set("qty", stockQty);
             stock.set("updated_time", new Date());
             stock.set("updated_by", UserThreadLocal.getUser().userId());
