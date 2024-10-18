@@ -66,7 +66,6 @@ public class StockService {
                 default:
                     throw new WebException("出入库类型不正确!");
             }
-            Assert.isTrue("入库".equals(type), () -> new WebException("此仓库无此物料库存, 请先入库此物料!"));
             stock.set("qty", stockQty);
             stock.set("updated_time", new Date());
             stock.set("updated_by", UserThreadLocal.getUser().userId());
