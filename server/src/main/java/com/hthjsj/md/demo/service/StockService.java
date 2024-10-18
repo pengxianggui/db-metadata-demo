@@ -54,7 +54,7 @@ public class StockService {
             int stockQty = stock.getInt("qty");
             // 更新库存
             if ("出库".equals(type) && stockQty < qty) {
-                throw new WebException("此物料库存不足! 当前库存为:%d", stockQty);
+                throw new WebException("此物料库存不足! 当前库存为:%s", String.valueOf(stockQty));
             }
             switch (type) {
                 case "出库":
