@@ -2,12 +2,9 @@ package com.hthjsj.md.demo.pointcut;
 
 import com.github.md.analysis.AnalysisSpringUtil;
 import com.github.md.analysis.SpringAnalysisManager;
-import com.github.md.analysis.meta.BusinessService;
-import com.github.md.analysis.meta.IMetaObject;
 import com.github.md.analysis.meta.MetaData;
 import com.github.md.analysis.meta.aop.*;
 import com.github.md.web.controller.TableQueryInvocation;
-import com.google.common.collect.ImmutableMap;
 import com.hthjsj.md.demo.service.StockLogService;
 import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.Record;
@@ -15,7 +12,7 @@ import com.jfinal.plugin.activerecord.Record;
 import java.math.BigDecimal;
 
 /**
- * 出入库记录
+ * 账务记录
  * @author pengxg
  * @date 2024/8/5 21:37
  */
