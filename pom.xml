@@ -15,7 +15,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <dbmeta.version>2.4.1-SNAPSHOT</dbmeta.version>
+        <dbmeta.version>2.4</dbmeta.version>
         <spring-boot.version>2.5.4</spring-boot.version>
     </properties>
 
