@@ -3,14 +3,8 @@ package com.hthjsj.md.demo.pointcut;
 import cn.hutool.core.lang.Assert;
 import com.github.md.analysis.AnalysisSpringUtil;
 import com.github.md.analysis.meta.aop.*;
-import com.github.md.web.ServiceManager;
 import com.github.md.web.ex.WebException;
-import com.github.md.web.kit.AssertKit;
 import com.hthjsj.md.demo.service.StockService;
-import com.jfinal.plugin.activerecord.Record;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 库存AOP
@@ -37,15 +31,16 @@ public class StockLogPointCut implements AddPointCut, UpdatePointCut, DeletePoin
 
     @Override
     public boolean deleteBefore(DeleteInvocation invocation) {
-        Object[] ids = invocation.getIds();
-        List<Record> deleteRecords = new ArrayList<>(ids.length);
-        for (Object id : ids) {
-            Record record = ServiceManager.businessService().findDataByIds(invocation.getMetaObject(), id);
-            AssertKit.isTrue(record != null, new WebException("出入库记录(id:%s)不存在，请刷新页面后重试", String.valueOf(id)));
-            deleteRecords.add(record);
-        }
-        boolean flag = AnalysisSpringUtil.getBean(StockService.class).rollback(deleteRecords);
-        Assert.isTrue(flag, "回滚库存失败!");
-        return true;
+        throw new WebException("出入库记录不允许删除，如填写错误，请通过创建相应单据冲销");
+//        Object[] ids = invocation.getIds();
+//        List<Record> deleteRecords = new ArrayList<>(ids.length);
+//        for (Object id : ids) {
+//            Record record = ServiceManager.businessService().findDataByIds(invocation.getMetaObject(), id);
+//            AssertKit.isTrue(record != null, new WebException("出入库记录(id:%s)不存在，请刷新页面后重试", String.valueOf(id)));
+//            deleteRecords.add(record);
+//        }
+//        boolean flag = AnalysisSpringUtil.getBean(StockService.class).rollback(deleteRecords);
+//        Assert.isTrue(flag, "回滚库存失败!");
+//        return true;
     }
 }
