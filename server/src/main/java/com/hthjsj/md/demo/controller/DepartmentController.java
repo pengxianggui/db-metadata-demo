@@ -14,6 +14,7 @@ import java.util.Map;
  * @author pengxg
  * @date 2022/5/11 3:26 下午
  */
+@Deprecated
 @RestController
 @RequestMapping("/department")
 public class DepartmentController {

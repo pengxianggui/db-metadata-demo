@@ -4,6 +4,7 @@ import cn.hutool.core.lang.Assert;
 import com.github.md.analysis.SpringAnalysisManager;
 import com.github.md.web.ex.WebException;
 import com.github.md.web.user.UserThreadLocal;
+import com.hthjsj.md.demo.controller.vo.StockVO;
 import com.jfinal.plugin.activerecord.Record;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,7 @@ public class StockService {
     /**
      * 更新库存， 若为入库同时此仓库无此物料则会初始化库存。若为出库，同时仓库无此物料则会抛出异常。
      * 其他情况会更新库存数量。
+     *
      * @param warehouseId
      * @param prodId
      * @param type
@@ -75,6 +77,7 @@ public class StockService {
 
     /**
      * 回滚库存
+     *
      * @param stockLogs 需要回滚的库存记录
      * @return 返回成功与否
      */
@@ -120,5 +123,18 @@ public class StockService {
             Assert.isTrue(flag, () -> new WebException("库存(id:%s)回滚失败!", String.valueOf(stockId)));
         }
         return true;
+    }
+
+    public List<StockVO> getList() {
+        String sql = "select t.id, t.prod_id, t1.`name`, t.qty from t_stock t " +
+                "left join t_product t1 on t1.id=t.prod_id " +
+                "order by t1.`name` asc";
+        List<Record> stocks = SpringAnalysisManager.me().dbMain().find(sql);
+        return stocks.stream().map(r -> new StockVO(
+                        r.getLong("id"),
+                        r.getLong("prod_id"),
+                        r.getStr("name"),
+                        r.getInt("qty")))
+                .collect(Collectors.toList());
     }
 }
